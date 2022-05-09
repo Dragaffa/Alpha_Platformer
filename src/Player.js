@@ -13,17 +13,18 @@ class Player {
         this.scene.anims.create({
             key: 'walk',
             frames: this.scene.anims.generateFrameNames('player', {
-                prefix: 'robo_player_',
-                start: 2,
-                end: 3,
+                //prefix: 'courirT',
+                start: 0,
+                end: 8,
+                //duration:10,
             }),
-            frameRate: 10,
-            repeat: -1
+            frameRate: 15,
+            repeat: -1,
         });
 
         this.scene.anims.create({
             key: 'jump',
-            frames: [{key: 'player', frame: 'robo_player_1'}],
+            frames: [{key: 'player', frame: 2}],
             frameRate: 10,
             repeat:-1,
 

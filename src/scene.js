@@ -5,7 +5,8 @@ class scene extends Phaser.Scene {
         this.load.image('spike', 'assets/images/spike.png');
         this.load.image('Piment', 'assets/images/Piment.png');
         // At last image must be loaded with its JSON
-        this.load.atlas('player', 'assets/images/kenney_player.png', 'assets/images/kenney_player_atlas.json');
+        this.load.atlas('player2', 'assets/images/kenney_player.png', 'assets/images/kenney_player_atlas.json');
+        this.load.spritesheet('player','assets/images/courirT.png',{frameWidth: 118, frameHeight: 121});
         this.load.image('tiles', 'assets/tilesets/platformPack_tilesheet.png');
 
         // Load the export Tiled JSON
@@ -73,7 +74,7 @@ class scene extends Phaser.Scene {
                 this.glissade.play();
                 this.flag=true;
             }
-            this.player.player.body.setOffset(0,58);
+            this.player.player.body.setOffset(0,82);
             this.player.player.body.setSize( this.player.player.sourceWidth, 40, false);
             if (!this.piment.eatPiment){
                 this.player.player.setVelocityX(350 * this.speed.speedMultiple);
