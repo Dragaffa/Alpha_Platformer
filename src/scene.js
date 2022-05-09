@@ -8,6 +8,7 @@ class scene extends Phaser.Scene {
         this.load.atlas('player2', 'assets/images/kenney_player.png', 'assets/images/kenney_player_atlas.json');
         this.load.spritesheet('player','assets/images/courirT.png',{frameWidth: 118, frameHeight: 121});
         this.load.image('tiles', 'assets/tilesets/platformPack_tilesheet.png');
+        this.load.image('tiles2', 'assets/tilesets/déco1.png');
 
         // Load the export Tiled JSON
         this.load.tilemapTiledJSON('map', 'assets/tilemaps/Alpha1.json');
@@ -21,6 +22,8 @@ class scene extends Phaser.Scene {
         const map = this.make.tilemap({key: 'map'});
 
         const tileset = map.addTilesetImage('Alpha_test1', 'tiles');
+        const tileset2 = map.addTilesetImage('déco1', 'tiles2');
+        this.arrière = map.createStaticLayer('plat', tileset2);
         this.platforms = map.createStaticLayer('Sol', tileset);
 
         this.platforms.setCollisionByExclusion(-1, true);
@@ -54,7 +57,7 @@ class scene extends Phaser.Scene {
         if (!this.piment.eatPiment){
             this.player.player.setVelocityX(300)
         }else {
-            this.player.player.setVelocityX(600)
+            this.player.player.setVelocityX(700)
         }
 
         if (this.player.player.body.onFloor()) {
