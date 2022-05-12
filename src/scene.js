@@ -23,9 +23,10 @@ class scene extends Phaser.Scene {
 
         const tileset = map.addTilesetImage('platformPack_tilesheet', 'tiles');
         const tileset2 = map.addTilesetImage('déco1', 'tiles2');
+        this.TaMere = map.createLayer('Sol2', tileset2);
         this.arriere = map.createLayer('plat', tileset2);
         this.platforms = map.createLayer('Sol', tileset);
-        this.TaMere = map.createLayer('Sol2', tileset2);
+
 
         this.platforms.setCollisionByExclusion(-1, true);
         this.cursors = this.input.keyboard.createCursorKeys();
