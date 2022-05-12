@@ -36,7 +36,7 @@ class Player {
         this.player.play('jump', true);
     }
     moveRight(){
-        this.player.setVelocityX(500);
+        this.player.setVelocityX(700);
         this.player.setFlipX(false);
         if (this.player.body.onFloor()) {
             this.player.play('walk', true)}

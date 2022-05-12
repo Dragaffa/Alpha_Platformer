@@ -33,7 +33,7 @@ class scene extends Phaser.Scene {
         this.player = new Player(this)
         this.piment = new Piment(this, this.player)
 
-        this.cameras.main.startFollow(this.player.player,false);
+        this.cameras.main.startFollow(this.player.player,true);
 
         this.speed={
             speedMultiple : 1,
@@ -55,9 +55,9 @@ class scene extends Phaser.Scene {
 
     update() {
         if (!this.piment.eatPiment){
-            this.player.player.setVelocityX(300)
+            this.player.player.setVelocityX(500)
         }else {
-            this.player.player.setVelocityX(700)
+            this.player.player.setVelocityX(800)
         }
 
         if (this.player.player.body.onFloor()) {
