@@ -6,7 +6,7 @@ class scene extends Phaser.Scene {
         this.load.image('Piment', 'assets/images/Piment.png');
         // At last image must be loaded with its JSON
         this.load.atlas('player2', 'assets/images/kenney_player.png', 'assets/images/kenney_player_atlas.json');
-        this.load.spritesheet('player','assets/images/courirT.png',{frameWidth: 118, frameHeight: 121});
+        this.load.spritesheet('player','assets/images/courirT2.png',{frameWidth: 118, frameHeight: 121});
         this.load.image('tiles', 'assets/tilesets/platformPack_tilesheet.png');
         this.load.image('tiles2', 'assets/tilesets/déco1.png');
         this.load.image('tiles3', 'assets/tilesets/fond.png');
