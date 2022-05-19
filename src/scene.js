@@ -9,6 +9,7 @@ class scene extends Phaser.Scene {
         this.load.spritesheet('player','assets/images/courirT2.png',{frameWidth: 118, frameHeight: 121});
         this.load.image('tiles', 'assets/tilesets/platformPack_tilesheet.png');
         this.load.image('tiles2', 'assets/tilesets/déco1.png');
+        this.load.image('fondPNG', 'assets/images/fond.png');
         this.load.image('tiles3', 'assets/tilesets/fond.png');
 
         // Load the export Tiled JSON
@@ -17,7 +18,7 @@ class scene extends Phaser.Scene {
 
     create() {
 
-        const backgroundImage = this.add.image(0, 0, 'tiles3').setOrigin(0, 0);
+        const backgroundImage = this.add.image(0, 0, 'background').setOrigin(0, 0);
         backgroundImage.setScale(1, 0.8);
         const map = this.make.tilemap({key: 'map'});
 
