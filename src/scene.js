@@ -15,10 +15,9 @@ class scene extends Phaser.Scene {
         this.load.tilemapTiledJSON('map', 'assets/tilemaps/Alpha1.json');
     }
 
-
     create() {
 
-        const backgroundImage = this.add.image(0, 0, 'background').setOrigin(0, 0);
+        const backgroundImage = this.add.image(0, 0, 'tiles3').setOrigin(0, 0);
         backgroundImage.setScale(1, 0.8);
         const map = this.make.tilemap({key: 'map'});
 
