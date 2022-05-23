@@ -1,5 +1,9 @@
 class scene extends Phaser.Scene {
 
+    constructor() {
+        super('game');
+    }
+
     preload() {
         //this.load.image('background', 'assets/images/background.png');
         this.load.image('spike', 'assets/images/spike.png');
