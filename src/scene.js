@@ -7,12 +7,13 @@ class scene extends Phaser.Scene {
     preload() {
         //this.load.image('background', 'assets/images/background.png');
         this.load.image('spike', 'assets/images/spike.png');
-        this.load.image('Piment', 'assets/images/Piment.png');
+        //this.load.image('Piment', 'assets/images/Piment.png');
         this.load.image('menu', 'assets/images/Menu.png');
         this.load.image('bouton', 'assets/images/bouton.png');
         // At last image must be loaded with its JSON
         this.load.atlas('player2', 'assets/images/kenney_player.png', 'assets/images/kenney_player_atlas.json');
         this.load.spritesheet('player','assets/images/courirT2.png',{frameWidth: 118, frameHeight: 121});
+        this.load.spritesheet('piment','assets/images/piment.png',{frameWidth: 134, frameHeight: 135});
         this.load.image('tiles', 'assets/tilesets/platformPack_tilesheet.png');
         this.load.image('tiles2', 'assets/tilesets/déco1.png');
         this.load.image('fondPNG', 'assets/images/fond.png');
@@ -49,10 +50,10 @@ class scene extends Phaser.Scene {
         this.player = new Player(this)
         this.piment = new Piment(this, this.player)
 
-        this.cameras.main.startFollow(this.player.player,true);
+        this.cameras.main.startFollow(this.player.player, true);
 
-        this.speed={
-            speedMultiple : 1,
+        this.speed = {
+            speedMultiple: 1,
         }
         this.glissade = this.tweens.add({
             targets: this.speed,

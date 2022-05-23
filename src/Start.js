@@ -30,6 +30,7 @@ class Start extends Phaser.Scene {
             .on('pointerout',function(){
                 buttonStartSprite.setAlpha(0.7);
             })
+
     }
 
 }
