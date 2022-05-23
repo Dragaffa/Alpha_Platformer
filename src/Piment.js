@@ -11,7 +11,7 @@ class Piment {
             immovable: true
         });
         map.getObjectLayer('Piment').objects.forEach((piment) => {
-            const pimentSprite = this.piment.create(piment.x, piment.y, 'Piment').setOrigin(0).setScale(0.2);
+            const pimentSprite = this.piment.create(piment.x, piment.y, 'Piment').setOrigin(0).setScale(1);
             this.Collect();
         });
     }

@@ -4,6 +4,8 @@ class scene extends Phaser.Scene {
         //this.load.image('background', 'assets/images/background.png');
         this.load.image('spike', 'assets/images/spike.png');
         this.load.image('Piment', 'assets/images/Piment.png');
+        this.load.image('menu', 'assets/images/Menu.png');
+        this.load.image('bouton', 'assets/images/bouton.png');
         // At last image must be loaded with its JSON
         this.load.atlas('player2', 'assets/images/kenney_player.png', 'assets/images/kenney_player_atlas.json');
         this.load.spritesheet('player','assets/images/courirT2.png',{frameWidth: 118, frameHeight: 121});
@@ -11,6 +13,7 @@ class scene extends Phaser.Scene {
         this.load.image('tiles2', 'assets/tilesets/déco1.png');
         this.load.image('fondPNG', 'assets/images/fond.png');
         this.load.image('tiles3', 'assets/tilesets/fond.png');
+        this.load.image('tiles4', 'assets/tilesets/ciel.png');
 
         // Load the export Tiled JSON
         this.load.tilemapTiledJSON('map', 'assets/tilemaps/Alpha1.json');
@@ -25,9 +28,12 @@ class scene extends Phaser.Scene {
         const tileset = map.addTilesetImage('platformPack_tilesheet', 'tiles');
         const tileset2 = map.addTilesetImage('déco1', 'tiles2');
         const tileset3 = map.addTilesetImage('fond', 'tiles3');
+        const tileset4 = map.addTilesetImage('ciel', 'tiles4');
 
-        this.TaRace = map.createLayer('planFond', tileset3);
-        this.TaMere = map.createLayer('Sol2', tileset2);
+        this.fond = map.createLayer('bleu', tileset4);
+        this.fond = map.createLayer('planFond', tileset3);
+        this.sol = map.createLayer('Sol2', tileset2);
+        this.sol = map.createLayer('Sol3', tileset2);
         this.arriere = map.createLayer('plat', tileset2);
         this.platforms = map.createLayer('Sol', tileset);
 
