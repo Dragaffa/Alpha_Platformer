@@ -23,8 +23,8 @@ class Piment {
             immovable: true
         });
         map.getObjectLayer('Piment').objects.forEach((piment) => {
-            const pimentSprite = this.piment.create(piment.x, piment.y, 'piment').setOrigin(0).setScale(1);
-            this.scene.piment.play('piment');
+            this.pimentSprite = this.piment.create(piment.x, piment.y, 'piment').setOrigin(0).setScale(1);
+            this.pimentSprite.play('piment');
             this.Collect();
         });
     }

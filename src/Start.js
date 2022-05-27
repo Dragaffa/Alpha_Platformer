@@ -13,7 +13,7 @@ class Start extends Phaser.Scene {
     create(){
         const menu = this.add.image(0, 0, 'menu').setOrigin(0, 0);
 
-        const buttonStartSprite = this.add.image(800, 450, 'bouton')
+        const buttonStartSprite = this.add.image(450, 500, 'bouton')
             .setOrigin(0, 0)
             .setScale(0.7)
             .setAlpha(0.7);

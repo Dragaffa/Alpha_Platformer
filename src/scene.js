@@ -25,7 +25,7 @@ class scene extends Phaser.Scene {
     }
 
     create() {
-
+        this.cameras.main.setRoundPixels(true);
         const backgroundImage = this.add.image(0, 0, 'background').setOrigin(0, 0);
         backgroundImage.setScale(1, 0.8);
         const map = this.make.tilemap({key: 'map'});
@@ -37,6 +37,7 @@ class scene extends Phaser.Scene {
 
         this.fond = map.createLayer('bleu', tileset4);
         this.fond = map.createLayer('planFond', tileset3);
+        this.fond = map.createLayer('atmo1', tileset2);
         this.sol = map.createLayer('Sol2', tileset2);
         this.sol = map.createLayer('Sol3', tileset2);
         this.arriere = map.createLayer('plat', tileset2);
@@ -50,7 +51,6 @@ class scene extends Phaser.Scene {
         this.player = new Player(this)
         this.piment = new Piment(this, this.player)
 
-        this.cameras.main.startFollow(this.player.player, true);
 
         this.speed = {
             speedMultiple: 1,
@@ -71,6 +71,9 @@ class scene extends Phaser.Scene {
 
 
     update() {
+        this.cameras.main.centerOn(this.player.player.x +300, 450, true);
+
+
         if (!this.piment.eatPiment){
             this.player.player.setVelocityX(500)
         }else {
