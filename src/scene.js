@@ -5,10 +5,9 @@ class scene extends Phaser.Scene {
     }
 
     preload() {
-        //this.load.image('background', 'assets/images/background.png');
         this.load.image('spike', 'assets/images/spike.png');
         //this.load.image('Piment', 'assets/images/Piment.png');
-        this.load.image('menu', 'assets/images/Menu.png');
+        //this.load.image('menu', 'assets/images/Menu.png');
         this.load.image('bouton', 'assets/images/bouton.png');
         // At last image must be loaded with its JSON
         this.load.atlas('player2', 'assets/images/kenney_player.png', 'assets/images/kenney_player_atlas.json');
@@ -19,15 +18,14 @@ class scene extends Phaser.Scene {
         this.load.image('fondPNG', 'assets/images/fond.png');
         this.load.image('tiles3', 'assets/tilesets/fond.png');
         this.load.image('tiles4', 'assets/tilesets/ciel.png');
-        this.load.image('background', 'assets/images/ciel2.png');
+        this.load.image('bite', 'assets/images/sky.png');
 
         // Load the export Tiled JSON
         this.load.tilemapTiledJSON('map', 'assets/tilemaps/Alpha1.json');
     }
 
     create() {
-        this.cameras.main.setRoundPixels(true);
-        this.backgroundImage = this.add.image(0, 0, 'background').setOrigin(0, 0);
+        this.backgroundImage = this.add.image(0, 0, 'bite').setOrigin(0, 0);
         this.backgroundImage.setScale(1, 1);
         const map = this.make.tilemap({key: 'map'});
 
@@ -40,7 +38,7 @@ class scene extends Phaser.Scene {
         this.fond = map.createLayer('planFond', tileset3);
         this.fond = map.createLayer('atmo1', tileset2);
         this.sol = map.createLayer('Sol2', tileset2);
-        this.sol = map.createLayer('Sol3', tileset2);
+        this.solo = map.createLayer('Sol3', tileset2);
         this.arriere = map.createLayer('plat', tileset2);
         this.platforms = map.createLayer('Sol', tileset);
 
@@ -70,6 +68,7 @@ class scene extends Phaser.Scene {
         });
 
         // Parallax
+
         this.backgroundImage.scrollFactorX=0;
         this.backgroundImage.scrollFactorY=0;
 
@@ -78,6 +77,7 @@ class scene extends Phaser.Scene {
 
     update() {
         this.cameras.main.centerOn(this.player.player.x +300, 450, true);
+        this.cameras.main.setRoundPixels(true);
 
 
         if (!this.piment.eatPiment){

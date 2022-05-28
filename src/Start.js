@@ -5,7 +5,7 @@ class Start extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('menu', 'assets/images/menu.png');
+        this.load.image('menu', 'assets/images/Menu.png');
         this.load.image('bouton', 'assets/images/bouton.png');
 
     }
