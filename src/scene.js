@@ -14,10 +14,10 @@ class scene extends Phaser.Scene {
         this.load.spritesheet('piment','assets/images/piment.png',{frameWidth: 134, frameHeight: 135});
         this.load.image('tiles', 'assets/tilesets/platformPack_tilesheet.png');
         this.load.image('tiles2', 'assets/tilesets/déco1.png');
-        this.load.image('bite', 'assets/images/ciel.png');
+        this.load.image('bite', 'assets/images/ciel2.png');
         //this.load.image('fondPNG', 'assets/images/fond.png');
         this.load.image('tiles3', 'assets/tilesets/fond.png');
-        this.load.image('tiles4', 'assets/tilesets/ciel.png');
+        //this.load.image('tiles4', 'assets/tilesets/ciel.png');
 
 
         // Load the export Tiled JSON
