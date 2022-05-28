@@ -19,6 +19,7 @@ class scene extends Phaser.Scene {
         this.load.image('fondPNG', 'assets/images/fond.png');
         this.load.image('tiles3', 'assets/tilesets/fond.png');
         this.load.image('tiles4', 'assets/tilesets/ciel.png');
+        this.load.image('background', 'assets/images/ciel2.png');
 
         // Load the export Tiled JSON
         this.load.tilemapTiledJSON('map', 'assets/tilemaps/Alpha1.json');
@@ -26,16 +27,16 @@ class scene extends Phaser.Scene {
 
     create() {
         this.cameras.main.setRoundPixels(true);
-        const backgroundImage = this.add.image(0, 0, 'background').setOrigin(0, 0);
-        backgroundImage.setScale(1, 0.8);
+        this.backgroundImage = this.add.image(0, 0, 'background').setOrigin(0, 0);
+        this.backgroundImage.setScale(1, 1);
         const map = this.make.tilemap({key: 'map'});
 
         const tileset = map.addTilesetImage('platformPack_tilesheet', 'tiles');
         const tileset2 = map.addTilesetImage('déco1', 'tiles2');
         const tileset3 = map.addTilesetImage('fond', 'tiles3');
-        const tileset4 = map.addTilesetImage('ciel', 'tiles4');
+        //const tileset4 = map.addTilesetImage('ciel', 'tiles4');
 
-        this.fond = map.createLayer('bleu', tileset4);
+        //this.fond = map.createLayer('bleu', tileset4);
         this.fond = map.createLayer('planFond', tileset3);
         this.fond = map.createLayer('atmo1', tileset2);
         this.sol = map.createLayer('Sol2', tileset2);
@@ -67,6 +68,11 @@ class scene extends Phaser.Scene {
             //repeat: -1, // -1: infinity
             //yoyo: true
         });
+
+        // Parallax
+        this.backgroundImage.scrollFactorX=0;
+        this.backgroundImage.scrollFactorY=0;
+
     }
 
 
