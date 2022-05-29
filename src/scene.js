@@ -11,7 +11,7 @@ class scene extends Phaser.Scene {
         // At last image must be loaded with its JSON
         this.load.atlas('player2', 'assets/images/kenney_player.png', 'assets/images/kenney_player_atlas.json');
         this.load.spritesheet('player','assets/images/courirT2.png',{frameWidth: 118, frameHeight: 121});
-        this.load.spritesheet('player','assets/images/courirP.png',{frameWidth: 136, frameHeight: 137});
+        this.load.spritesheet('playerP','assets/images/courirP.png',{frameWidth: 136, frameHeight: 137});
         this.load.spritesheet('piment','assets/images/piment.png',{frameWidth: 134, frameHeight: 135});
         this.load.image('tiles', 'assets/tilesets/platformPack_tilesheet.png');
         this.load.image('tiles2', 'assets/tilesets/déco1.png');
@@ -77,15 +77,17 @@ class scene extends Phaser.Scene {
 
 
     update() {
-        this.cameras.main.centerOn(this.player.player.x +300, 450, true);
+        this.cameras.main.centerOn(this.player.player.x + 300, 450, true);
         this.cameras.main.setRoundPixels(true);
 
 
-        if (!this.piment.eatPiment){
+        if (!this.piment.eatPiment) {
             this.player.player.setVelocityX(500)
-        }else {
+        } else {
             this.player.player.setVelocityX(800)
         }
+
+
 
         if (this.player.player.body.onFloor()) {
             this.player.player.play('walk', true)}
