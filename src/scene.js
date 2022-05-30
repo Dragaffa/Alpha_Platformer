@@ -52,6 +52,7 @@ class scene extends Phaser.Scene {
         this.piment = new Piment(this, this.player)
 
 
+
         this.speed = {
             speedMultiple: 1,
         }

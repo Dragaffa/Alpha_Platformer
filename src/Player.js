@@ -43,7 +43,7 @@ class Player {
     }
 
     jump(){
-        this.player.setVelocityY(-500);
+        this.player.setVelocityY(-550);
         this.player.play('jump', true);
     }
     moveRight(){

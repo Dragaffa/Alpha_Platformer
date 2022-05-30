@@ -11,7 +11,7 @@ class Piment {
             frames: this.scene.anims.generateFrameNames('piment', {
 
                 start: 0,
-                end: 36,
+                end: 35,
 
             }),
             frameRate: 15,
