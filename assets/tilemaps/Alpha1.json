@@ -1,5 +1,4 @@
-{ "compressionlevel":-1,
- "height":7,
+{ "height":7,
  "infinite":true,
  "layers":[
         {
@@ -123,7 +122,6 @@
                  "x":96,
                  "y":0
                 }],
-         "compression":"",
          "encoding":"base64",
          "height":32,
          "id":16,
@@ -195,7 +193,6 @@
                  "x":96,
                  "y":0
                 }],
-         "compression":"",
          "encoding":"base64",
          "height":16,
          "id":15,
@@ -269,7 +266,6 @@
                  "x":96,
                  "y":0
                 }],
-         "compression":"",
          "encoding":"base64",
          "height":16,
          "id":18,
@@ -334,7 +330,6 @@
                  "x":80,
                  "y":0
                 }],
-         "compression":"",
          "encoding":"base64",
          "height":16,
          "id":10,
@@ -359,7 +354,6 @@
                  "x":80,
                  "y":0
                 }],
-         "compression":"",
          "encoding":"base64",
          "height":16,
          "id":17,
@@ -367,11 +361,11 @@
          "offsetx":-0.5,
          "offsety":-8,
          "opacity":1,
-         "startx":-16,
+         "startx":80,
          "starty":0,
          "type":"tilelayer",
          "visible":true,
-         "width":112,
+         "width":16,
          "x":0,
          "y":0
         }, 
@@ -426,17 +420,16 @@
                  "x":48,
                  "y":0
                 }],
-         "compression":"",
          "encoding":"base64",
          "height":32,
          "id":7,
          "name":"plat",
          "opacity":1,
-         "startx":-16,
+         "startx":0,
          "starty":-16,
          "type":"tilelayer",
          "visible":true,
-         "width":112,
+         "width":96,
          "x":0,
          "y":0
         }, 
@@ -540,7 +533,6 @@
                  "x":80,
                  "y":16
                 }],
-         "compression":"",
          "encoding":"base64",
          "height":32,
          "id":1,
@@ -581,7 +573,7 @@
  "nextobjectid":66,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.7.2",
+ "tiledversion":"1.2.0",
  "tileheight":64,
  "tilesets":[
         {
@@ -638,6 +630,6 @@
         }],
  "tilewidth":64,
  "type":"map",
- "version":"1.6",
+ "version":1.2,
  "width":14
 }
