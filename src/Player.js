@@ -31,14 +31,15 @@ class Player {
         });
 
         this.scene.anims.create({
-            key: 'run',
-            frames: [{key: 'playerP',
+            key:'run',
+            frames: this.scene.anims.generateFrameNames('playerP', {
+
                 start: 0,
                 end: 8,
-            }],
-            frameRate: 10,
-            repeat:-1,
 
+            }),
+            frameRate: 15,
+            repeat: -1,
         });
     }
 
@@ -50,8 +51,11 @@ class Player {
         this.player.setVelocityX(700);
         this.player.setFlipX(false);
         if (this.player.body.onFloor()) {
-            this.player.play('walk', true)}
-    }
+            if(this.scene.piment.eatPiment){
+                this.player.play('run', true)}
+            } else{
+                this.player.play('walk', true)}
+        }
 
     stop(){
         this.player.setVelocityX(0);

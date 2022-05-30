@@ -18,6 +18,7 @@ class Piment {
             repeat: -1,
         });
 
+
         this.piment = this.scene.physics.add.group({
             allowGravity: false,
             immovable: true
