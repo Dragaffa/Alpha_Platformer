@@ -39,6 +39,18 @@ class Player {
         });
 
         this.scene.anims.create({
+            key:'gliss',
+            frames: this.scene.anims.generateFrameNames('gliss', {
+
+                start: 0,
+                end: 2,
+
+            }),
+            frameRate: 15,
+            repeat: -1,
+        });
+
+        this.scene.anims.create({
             key:'run',
             frames: this.scene.anims.generateFrameNames('playerP', {
 

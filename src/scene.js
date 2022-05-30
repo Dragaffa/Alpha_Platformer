@@ -12,6 +12,9 @@ class scene extends Phaser.Scene {
         this.load.atlas('player2', 'assets/images/kenney_player.png', 'assets/images/kenney_player_atlas.json');
         this.load.spritesheet('player','assets/images/courirT2.png',{frameWidth: 118, frameHeight: 121});
         this.load.spritesheet('playerP','assets/images/courirP.png',{frameWidth: 118, frameHeight: 121});
+        this.load.spritesheet('gliss','assets/images/glisse.png',{frameWidth: 118, frameHeight: 121});
+        this.load.spritesheet('glissP','assets/images/glisseP.png',{frameWidth: 118, frameHeight: 121});
+
         this.load.spritesheet('piment','assets/images/piment.png',{frameWidth: 134, frameHeight: 135});
         this.load.image('tiles', 'assets/tilesets/platformPack_tilesheet.png');
         this.load.image('tiles2', 'assets/tilesets/déco1.png');
@@ -69,6 +72,8 @@ class scene extends Phaser.Scene {
             //yoyo: true
         });
 
+
+
         // Parallax
 
         this.backgroundImage.scrollFactorX=0;
@@ -94,8 +99,6 @@ class scene extends Phaser.Scene {
 
 
 
-
-
         switch (true) {
             case (this.cursors.up.isDown) && this.player.player.body.onFloor():
                 this.player.jump()
@@ -113,9 +116,9 @@ class scene extends Phaser.Scene {
             this.player.player.body.setOffset(0,82);
             this.player.player.body.setSize( this.player.player.sourceWidth, 40, false);
             if (!this.piment.eatPiment){
-                this.player.player.setVelocityX(350 * this.speed.speedMultiple);
+                this.player.player.setVelocityX(500 * this.speed.speedMultiple);
             }else {
-                this.player.player.setVelocityX(650 * this.speed.speedMultiple);
+                this.player.player.setVelocityX(800 * this.speed.speedMultiple);
             }
 
         }

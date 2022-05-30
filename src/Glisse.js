@@ -21,9 +21,9 @@ class Glisse {
             me.player.player.body.setOffset(0,82);
             me.player.player.body.setSize( me.player.player.sourceWidth, 40, false);
             me.isGliss = true;
-            console.log('tesr')
+            console.log('test')
         },null, this);
     }
-    
+
 
 }
