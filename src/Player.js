@@ -29,10 +29,21 @@ class Player {
             repeat:-1,
 
         });
+
+        this.scene.anims.create({
+            key: 'run',
+            frames: [{key: 'playerP',
+                start: 0,
+                end: 8,
+            }],
+            frameRate: 10,
+            repeat:-1,
+
+        });
     }
 
     jump(){
-        this.player.setVelocityY(-500);
+        this.player.setVelocityY(-550);
         this.player.play('jump', true);
     }
     moveRight(){
