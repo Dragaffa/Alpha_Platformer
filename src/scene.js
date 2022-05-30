@@ -52,8 +52,10 @@ class scene extends Phaser.Scene {
 
 
         this.player = new Player(this)
+        this.lapin = new Lapin(this)
         this.piment = new Piment(this, this.player)
         this.Gliss = new Glisse(this,this.player)
+        this.lapinBox = new LapinBox(this,this.lapin)
 
 
         this.speed = {
@@ -89,7 +91,7 @@ class scene extends Phaser.Scene {
 
         if (!this.piment.eatPiment) {
             this.player.player.setVelocityX(500)
-            if (this.player.player.body.onFloor()  & !this.cursors.down.isDown) {
+            if (this.player.player.body.onFloor()  && !this.cursors.down.isDown) {
                 this.player.player.play('walk', true)}
         } else {
             this.player.player.setVelocityX(800)
@@ -106,30 +108,34 @@ class scene extends Phaser.Scene {
 
         }
 
-        if (this.cursors.down.isDown){
-            if (this.flag){
-
-            }else{
-                this.glissade.play();
-                this.flag=true;
-
-                if(this.piment.eatPiment){
-                    this.player.player.anims.play('glissP')
+        if (this.cursors.down.isDown) {
+            if (this.player.player.body.onFloor()) {
+                if (this.flag) {
 
                 } else {
-                    this.player.player.anims.play('gliss')
+                    this.glissade.play();
+                    this.flag = true;
+
+                    if (this.piment.eatPiment) {
+                        this.player.player.anims.play('glissP')
+
+                    } else {
+                        this.player.player.anims.play('gliss')
+
+                    }
 
                 }
+                this.player.player.body.setOffset(0, 82);
+                this.player.player.body.setSize(this.player.player.sourceWidth, 40, false);
+                if (!this.piment.eatPiment) {
+                    this.player.player.setVelocityX(500 * this.speed.speedMultiple);
+                } else {
+                    this.player.player.setVelocityX(800 * this.speed.speedMultiple);
+                }
 
+            } else {
+                this.player.player.setVelocityY(800);
             }
-            this.player.player.body.setOffset(0,82);
-            this.player.player.body.setSize( this.player.player.sourceWidth, 40, false);
-            if (!this.piment.eatPiment){
-                this.player.player.setVelocityX(500 * this.speed.speedMultiple);
-            }else {
-                this.player.player.setVelocityX(800 * this.speed.speedMultiple);
-            }
-
         }
         if (!this.cursors.down.isDown && !this.Gliss.isGliss){
             if (this.flag){
@@ -143,6 +149,9 @@ class scene extends Phaser.Scene {
         if (this.Gliss.isGliss){
             this.Gliss.isGliss = false;
         }
+
+
+        this.lapin.player.setVelocityX(500)
 
 }
 

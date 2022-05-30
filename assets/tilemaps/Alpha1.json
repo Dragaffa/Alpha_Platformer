@@ -405,15 +405,15 @@
                 }],
          "compression":"",
          "encoding":"base64",
-         "height":32,
+         "height":16,
          "id":7,
          "name":"plat",
          "opacity":1,
          "startx":0,
-         "starty":-16,
+         "starty":0,
          "type":"tilelayer",
          "visible":true,
-         "width":96,
+         "width":64,
          "x":0,
          "y":0
         }, 
@@ -833,6 +833,128 @@
          "y":0
         }, 
         {
+         "color":"#0000ff",
+         "draworder":"topdown",
+         "id":22,
+         "name":"LapinBox",
+         "objects":[
+                {
+                 "height":64,
+                 "id":77,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"hauteurMax",
+                         "type":"int",
+                         "value":500
+                        }, 
+                        {
+                         "name":"hauteurMin",
+                         "type":"int",
+                         "value":200
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":512,
+                 "y":704
+                }, 
+                {
+                 "height":64,
+                 "id":79,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"hauteurMax",
+                         "type":"int",
+                         "value":500
+                        }, 
+                        {
+                         "name":"hauteurMin",
+                         "type":"int",
+                         "value":200
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":1088,
+                 "y":576
+                }, 
+                {
+                 "height":64,
+                 "id":80,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"hauteurMax",
+                         "type":"int",
+                         "value":500
+                        }, 
+                        {
+                         "name":"hauteurMin",
+                         "type":"int",
+                         "value":200
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":1664,
+                 "y":448
+                }, 
+                {
+                 "height":64,
+                 "id":81,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"hauteurMax",
+                         "type":"int",
+                         "value":500
+                        }, 
+                        {
+                         "name":"hauteurMin",
+                         "type":"int",
+                         "value":200
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":2240,
+                 "y":704
+                }, 
+                {
+                 "height":64,
+                 "id":82,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"hauteurMax",
+                         "type":"int",
+                         "value":1000
+                        }, 
+                        {
+                         "name":"hauteurMin",
+                         "type":"int",
+                         "value":500
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":3392,
+                 "y":704
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
          "draworder":"topdown",
          "id":21,
          "name":"Gliss",
@@ -865,8 +987,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":22,
- "nextobjectid":77,
+ "nextlayerid":23,
+ "nextobjectid":83,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.7.2",
