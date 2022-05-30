@@ -31,6 +31,14 @@ class Player {
         });
 
         this.scene.anims.create({
+            key: 'jumpP',
+            frames: [{key: 'playerP', frame: 8}],
+            frameRate: 10,
+            repeat:-1,
+
+        });
+
+        this.scene.anims.create({
             key:'run',
             frames: this.scene.anims.generateFrameNames('playerP', {
 
