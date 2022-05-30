@@ -47,7 +47,19 @@ class Player {
 
             }),
             frameRate: 15,
-            repeat: -1,
+            repeat: 0,
+        });
+
+        this.scene.anims.create({
+            key:'glissP',
+            frames: this.scene.anims.generateFrameNames('glissP', {
+
+                start: 0,
+                end: 2,
+
+            }),
+            frameRate: 15,
+            repeat: 0,
         });
 
         this.scene.anims.create({
@@ -65,7 +77,11 @@ class Player {
 
     jump(){
         this.player.setVelocityY(-550);
-        this.player.play('jump', true);
+        if(this.scene.piment.eatPiment){
+            this.player.play('jumpP', true);
+        } else {
+            this.player.play('jump', true);
+        }
     }
     moveRight(){
         this.player.setVelocityX(700);
