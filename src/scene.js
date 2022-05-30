@@ -153,6 +153,12 @@ class scene extends Phaser.Scene {
 
         this.lapin.player.setVelocityX(500)
 
+
+        if (this.player.player.x >= 11212){
+            this.player.player.setVelocity(0,0);
+            this.player.player.play('dance',true);
+        }
+
 }
 
 
