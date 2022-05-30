@@ -50,7 +50,7 @@ class scene extends Phaser.Scene {
 
         this.player = new Player(this)
         this.piment = new Piment(this, this.player)
-
+        this.Gliss = new Glisse(this,this.player)
 
 
         this.speed = {
@@ -118,16 +118,17 @@ class scene extends Phaser.Scene {
                 this.player.player.setVelocityX(650 * this.speed.speedMultiple);
             }
 
-            console.log(this.player.player.getCenter());
         }
-        if (!this.cursors.down.isDown){
+        if (!this.cursors.down.isDown && !this.Gliss.isGliss){
             if (this.flag){
-                this.player.player.setVelocityX(0);
-                this.flag=false;
                 this.player.player.body.setOffset(0,0);
                 this.player.player.body.setSize( this.player.player.sourceWidth,  this.player.player.sourceHeight, true);
                 this.glissade.stop();
             }
+        }
+
+        if (this.Gliss.isGliss){
+            this.Gliss.isGliss = false;
         }
 
 }
