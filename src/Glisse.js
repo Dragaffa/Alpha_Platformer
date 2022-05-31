@@ -8,6 +8,8 @@ class Glisse {
 
         this.isGliss = false;
         let me = this
+        me.glissIn = false;
+
 
         this.Glisse = this.scene.physics.add.group({
             allowGravity: false,
@@ -20,6 +22,7 @@ class Glisse {
         this.scene.physics.add.overlap(this.player.player, this.Glisse, function(player,gliss){
             me.player.player.body.setOffset(0,82);
             me.player.player.body.setSize( me.player.player.sourceWidth, 40, false);
+            me.glissIn = true;
             me.isGliss = true;
             console.log('test')
         },null, this);

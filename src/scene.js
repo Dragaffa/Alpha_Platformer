@@ -91,7 +91,11 @@ class scene extends Phaser.Scene {
 
         if (!this.piment.eatPiment) {
             this.player.player.setVelocityX(500)
-            if (this.player.player.body.onFloor()  && !this.cursors.down.isDown) {
+
+            if(this.Gliss.glissIn){
+
+            }
+            else if (this.player.player.body.onFloor()  && !this.cursors.down.isDown) {
                 this.player.player.play('walk', true)}
         } else {
             this.player.player.setVelocityX(800)
@@ -143,6 +147,7 @@ class scene extends Phaser.Scene {
                 this.player.player.body.setSize( this.player.player.sourceWidth,  this.player.player.sourceHeight, true);
                 this.glissade.stop();
                 this.flag=false;
+                this.Gliss.glissIn = false;
             }
         }
 
