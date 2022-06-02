@@ -20,9 +20,9 @@ class scene extends Phaser.Scene {
         this.load.image('tiles', 'assets/tilesets/platformPack_tilesheet.png');
         this.load.image('tiles2', 'assets/tilesets/déco1.png');
         this.load.image('truc', 'assets/images/ciel2.png');
-        //this.load.image('fondPNG', 'assets/images/fond.png');
         this.load.image('tiles3', 'assets/tilesets/fond.png');
-        //this.load.image('tiles4', 'assets/tilesets/ciel.png');
+        this.load.image('tiles4', 'assets/tilesets/vege.png');
+
 
 
         // Load the export Tiled JSON
@@ -36,14 +36,15 @@ class scene extends Phaser.Scene {
 
         const tileset = map.addTilesetImage('platformPack_tilesheet', 'tiles');
         const tileset2 = map.addTilesetImage('déco1', 'tiles2');
+        const tileset4 = map.addTilesetImage('vege', 'tiles4');
         const tileset3 = map.addTilesetImage('fond', 'tiles3');
-        //const tileset4 = map.addTilesetImage('ciel', 'tiles4');
 
-        //this.fond = map.createLayer('bleu', tileset4);
+
         this.fond = map.createLayer('planFond', tileset3);
         this.fond = map.createLayer('atmo1', tileset2);
         this.sol = map.createLayer('Sol2', tileset2);
         this.solo = map.createLayer('Sol3', tileset2);
+        this.potoFin = map.createLayer('fin', tileset4);
         this.arriere = map.createLayer('plat', tileset2);
         this.platforms = map.createLayer('Sol', tileset);
 
@@ -186,7 +187,7 @@ class scene extends Phaser.Scene {
 
 
 
-        if (this.player.player.x >= 11212){
+        if (this.player.player.x >= 11072){
             this.player.player.setVelocity(0,0);
             this.player.player.play('dance',true);
         }
