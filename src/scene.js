@@ -175,7 +175,7 @@ class scene extends Phaser.Scene {
         }
 
 
-        this.lapin.player.setVelocityX(500)
+        this.lapin.player.setVelocityX(600)
         if (this.lapin.player.body.onFloor()) {
             this.lapin.player.play('lapin',true);
         }
