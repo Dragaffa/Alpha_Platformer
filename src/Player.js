@@ -70,7 +70,7 @@ class Player {
                 end: 8,
 
             }),
-            frameRate: 15,
+            frameRate: 20,
             repeat: -1,
         });
     }

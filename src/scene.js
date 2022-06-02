@@ -105,7 +105,7 @@ class scene extends Phaser.Scene {
 
 
     update() {
-        this.cameras.main.centerOn(this.player.player.x + 300, 450, true);
+        this.cameras.main.centerOn(this.player.player.x + 300, 480, true);
         this.cameras.main.setRoundPixels(true);
 
 
@@ -187,8 +187,9 @@ class scene extends Phaser.Scene {
 
 
 
-        if (this.player.player.x >= 11072){
+        if (this.player.player.x >= 25084 || this.lapin.player.x >= 25084){
             this.player.player.setVelocity(0,0);
+            this.lapin.player.setVelocity(0,0);
             this.player.player.play('dance',true);
         }
 
