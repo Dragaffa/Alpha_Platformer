@@ -17,11 +17,11 @@ class LapinBox{
                 this.boxSprite.hauteurMin = box.properties[1].value;
             });
 
-            this.scene.physics.add.overlap(this.lapin.player, this.box, this.tuch.bind(this))
+            this.scene.physics.add.overlap(this.lapin.player, this.box, this.bidule.bind(this))
 
         }
 
-        tuch(lapin, box){
+        bidule(lapin, box){
 
             let rand = Phaser.Math.Between(1,10);
             console.log(rand)

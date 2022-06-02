@@ -14,11 +14,12 @@ class scene extends Phaser.Scene {
         this.load.spritesheet('playerP','assets/images/courirP.png',{frameWidth: 118, frameHeight: 121});
         this.load.spritesheet('gliss','assets/images/glisse.png',{frameWidth: 118, frameHeight: 121});
         this.load.spritesheet('glissP','assets/images/glisseP.png',{frameWidth: 118, frameHeight: 121});
+        this.load.spritesheet('lapinT','assets/images/LapinT.png',{frameWidth: 258, frameHeight: 281});
 
         this.load.spritesheet('piment','assets/images/piment.png',{frameWidth: 134, frameHeight: 135});
         this.load.image('tiles', 'assets/tilesets/platformPack_tilesheet.png');
         this.load.image('tiles2', 'assets/tilesets/déco1.png');
-        this.load.image('bite', 'assets/images/ciel2.png');
+        this.load.image('truc', 'assets/images/ciel2.png');
         //this.load.image('fondPNG', 'assets/images/fond.png');
         this.load.image('tiles3', 'assets/tilesets/fond.png');
         //this.load.image('tiles4', 'assets/tilesets/ciel.png');
@@ -29,7 +30,7 @@ class scene extends Phaser.Scene {
     }
 
     create() {
-        this.backgroundImage = this.add.image(0, 0, 'bite').setOrigin(0, 0);
+        this.backgroundImage = this.add.image(0, 0, 'truc').setOrigin(0, 0);
         this.backgroundImage.setScale(1, 1);
         const map = this.make.tilemap({key: 'map'});
 
@@ -74,7 +75,25 @@ class scene extends Phaser.Scene {
             //yoyo: true
         });
 
+        this.anims.create({
+            key:'lapin',
+            frames: this.anims.generateFrameNames('lapinT', {
 
+                start: 0,
+                end: 5,
+
+            }),
+            frameRate: 15,
+            repeat: -1,
+        });
+
+        this.anims.create({
+            key: 'jumpL',
+            frames: [{key: 'lapinT', frame:3 }],
+            frameRate: 10,
+            repeat:-1,
+
+        });
 
         // Parallax
 
@@ -157,6 +176,14 @@ class scene extends Phaser.Scene {
 
 
         this.lapin.player.setVelocityX(500)
+        if (this.lapin.player.body.onFloor()) {
+            this.lapin.player.play('lapin',true);
+        }
+        else {
+            this.lapin.player.play('jumpL',true);
+        }
+
+
 
 
         if (this.player.player.x >= 11212){
