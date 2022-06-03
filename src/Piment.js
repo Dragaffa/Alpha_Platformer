@@ -41,6 +41,6 @@ class Piment {
         this.eatPiment = true;
         setTimeout(function(){
             me.eatPiment = false;
-        },3000)
+        },2700)
     }
 }
