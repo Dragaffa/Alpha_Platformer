@@ -19,6 +19,7 @@ class scene extends Phaser.Scene {
 
         this.load.spritesheet('piment','assets/images/piment.png',{frameWidth: 134, frameHeight: 135});
         this.load.spritesheet('dance','assets/images/victoire.png',{frameWidth: 106, frameHeight: 147});
+        this.load.spritesheet('danceL','assets/images/victoireL.png',{frameWidth: 106, frameHeight: 147});
         this.load.image('tiles', 'assets/tilesets/platformPack_tilesheet.png');
         this.load.image('tiles2', 'assets/tilesets/déco1.png');
         this.load.image('truc', 'assets/images/ciel2.png');
@@ -112,7 +113,25 @@ class scene extends Phaser.Scene {
 
         });
 
+        this.anims.create({
+            key:'danceL',
+            frames: this.anims.generateFrameNames('danceL', {
 
+                start: 0,
+                end: 2,
+
+            }),
+            frameRate: 10,
+            repeat: 0,
+        });
+
+        this.anims.create({
+            key: 'perduL',
+            frames: [{key: 'danceL', frame:0 }],
+            frameRate: 10,
+            repeat:-1,
+
+        });
 
         this.anims.create({
             key: 'tribunes',
@@ -251,13 +270,15 @@ class scene extends Phaser.Scene {
             }
         }
 
-        if (this.lapin.player.x >= 25084) {
+        if (this.lapin.player.x >= 25200) {
             this.lapin.player.setVelocity(0, 0);
             if (this.danceFlag2){
                 if (this.termine){
-                    this.lapin.player.play('perdu');
+                    this.lapin.player.play('perduL');
+                    this.lapin.player.setScale(1);
                 } else {
-                    this.lapin.player.play('dance');
+                    this.lapin.player.play('danceL');
+                    this.lapin.player.setScale(1);
                     this.termine=true;
                 }
                 this.danceFlag2=false;
