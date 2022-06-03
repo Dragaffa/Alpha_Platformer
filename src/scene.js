@@ -40,9 +40,9 @@ class scene extends Phaser.Scene {
         const tileset4 = map.addTilesetImage('vege', 'tiles4');
         const tileset3 = map.addTilesetImage('fond', 'tiles3');
 
-
+        this.montagne = map.createLayer('montagne', tileset3);
         this.fond = map.createLayer('planFond', tileset3);
-        this.fond = map.createLayer('atmo1', tileset2);
+        this.atmo = map.createLayer('atmo1', tileset2);
         this.sol = map.createLayer('Sol2', tileset2);
         this.solo = map.createLayer('Sol3', tileset2);
         this.potoFin = map.createLayer('fin', tileset4);
@@ -101,6 +101,10 @@ class scene extends Phaser.Scene {
 
         this.backgroundImage.scrollFactorX=0;
         this.backgroundImage.scrollFactorY=0;
+
+        this.fond.scrollFactorX=0.3;
+        this.montagne.scrollFactorX=0.2;
+
 
     }
 
