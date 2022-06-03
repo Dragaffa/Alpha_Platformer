@@ -21,7 +21,7 @@ class scene extends Phaser.Scene {
         this.load.spritesheet('dance','assets/images/victoire.png',{frameWidth: 106, frameHeight: 147});
         this.load.spritesheet('danceL','assets/images/victoireL.png',{frameWidth: 106, frameHeight: 147});
         this.load.image('tiles', 'assets/tilesets/platformPack_tilesheet.png');
-        this.load.image('tiles2', 'assets/tilesets/déco1.png');
+        this.load.image('tiles2', 'assets/tilesets/deco1.png');
         this.load.image('truc', 'assets/images/ciel2.png');
         this.load.image('tiles3', 'assets/tilesets/fond.png');
         this.load.image('tiles4', 'assets/tilesets/vege.png');
@@ -43,7 +43,7 @@ class scene extends Phaser.Scene {
         const map = this.make.tilemap({key: 'map'});
 
         const tileset = map.addTilesetImage('platformPack_tilesheet', 'tiles');
-        const tileset2 = map.addTilesetImage('déco1', 'tiles2');
+        const tileset2 = map.addTilesetImage('deco1', 'tiles2');
         const tileset4 = map.addTilesetImage('vege', 'tiles4');
         const tileset3 = map.addTilesetImage('fond', 'tiles3');
 
