@@ -42,6 +42,9 @@ class scene extends Phaser.Scene {
 
         this.montagne = map.createLayer('montagne', tileset3);
         this.fond = map.createLayer('planFond', tileset3);
+        this.arbre2 = map.createLayer('arbre2', tileset4);
+        this.arbre3 = map.createLayer('arbre3', tileset4);
+        this.arbre1 = map.createLayer('arbre1', tileset4);
         this.atmo = map.createLayer('atmo1', tileset2);
         this.sol = map.createLayer('Sol2', tileset2);
         this.solo = map.createLayer('Sol3', tileset2);
@@ -104,6 +107,8 @@ class scene extends Phaser.Scene {
 
         this.fond.scrollFactorX=0.3;
         this.montagne.scrollFactorX=0.2;
+        this.arbre2.scrollFactorX=0.3;
+        this.arbre3.scrollFactorX=0.3;
 
 
     }
