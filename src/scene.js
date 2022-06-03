@@ -25,6 +25,9 @@ class scene extends Phaser.Scene {
         this.load.image('truc', 'assets/images/ciel2.png');
         this.load.image('tiles3', 'assets/tilesets/fond.png');
         this.load.image('tiles4', 'assets/tilesets/vege.png');
+        this.load.image('1', 'assets/images/1.png');
+        this.load.image('2', 'assets/images/2.png');
+        this.load.image('3', 'assets/images/3.png');
 
 
 
@@ -157,16 +160,22 @@ class scene extends Phaser.Scene {
         this.arbre3.scrollFactorX=0.3;
 
         this.initialTime = 3;
-        this.depart = this.add.text(364, 578, this.initialTime).setFontSize(92).setDepth(999999);
+        this.nb = this.add.image(364, 578, '3').setDepth(999);
         this.time.addEvent({ delay: 1000, callback: this.onEvent, callbackScope: this, loop: true });
     }
 
     onEvent ()
 {
     this.initialTime -= 1;
-    this.depart.setText(this.initialTime);
+
+    if (this.initialTime===2){
+        this.nb.setTexture('2');
+    }
+    if (this.initialTime===1){
+        this.nb.setTexture('1');
+    }
     if (this.initialTime===0){
-        this.depart.setVisible(false);
+        this.nb.destroy()
         this.CestPartieMaGueule1 = true;
         this.CestPartieMaGueule2 = true;
     }
