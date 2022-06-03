@@ -12,7 +12,7 @@ const config = {
         arcade: {
             gravity: { y: 800 },
             debug: false,
-            fps:144,
+            //fps:144,
         },
     },
     scene: [new Start(), new scene()]
