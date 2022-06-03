@@ -39,6 +39,25 @@ class Player {
         });
 
         this.scene.anims.create({
+            key:'dance',
+            frames: this.scene.anims.generateFrameNames('dance', {
+
+                start: 0,
+                end: 2,
+
+            }),
+            frameRate: 10,
+            repeat: 0,
+        });
+
+        this.scene.anims.create({
+            key:'perdu',
+            frames: [{key: 'dance', frame: 0}],
+            frameRate: 10,
+            repeat: 0,
+        });
+
+        this.scene.anims.create({
             key:'gliss',
             frames: this.scene.anims.generateFrameNames('gliss', {
 

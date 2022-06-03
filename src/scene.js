@@ -18,6 +18,7 @@ class scene extends Phaser.Scene {
         this.load.spritesheet('tribunes','assets/images/tribune.png',{frameWidth: 312, frameHeight: 195});
 
         this.load.spritesheet('piment','assets/images/piment.png',{frameWidth: 134, frameHeight: 135});
+        this.load.spritesheet('dance','assets/images/victoire.png',{frameWidth: 106, frameHeight: 147});
         this.load.image('tiles', 'assets/tilesets/platformPack_tilesheet.png');
         this.load.image('tiles2', 'assets/tilesets/déco1.png');
         this.load.image('truc', 'assets/images/ciel2.png');
@@ -31,6 +32,11 @@ class scene extends Phaser.Scene {
     }
 
     create() {
+        this.danceFlag=true;
+        this.danceFlag2=true;
+        this.termine=false;
+
+
         this.backgroundImage = this.add.image(0, 0, 'truc').setOrigin(0, 0);
         this.backgroundImage.setScale(1, 1);
         const map = this.make.tilemap({key: 'map'});
@@ -106,6 +112,8 @@ class scene extends Phaser.Scene {
 
         });
 
+
+
         this.anims.create({
             key: 'tribunes',
             frames: this.anims.generateFrameNames('tribunes', {
@@ -129,29 +137,42 @@ class scene extends Phaser.Scene {
         this.arbre2.scrollFactorX=0.3;
         this.arbre3.scrollFactorX=0.3;
 
-
+        this.initialTime = 3;
+        this.depart = this.add.text(364, 578, this.initialTime).setFontSize(92).setDepth(999999);
+        this.time.addEvent({ delay: 1000, callback: this.onEvent, callbackScope: this, loop: true });
     }
 
+    onEvent ()
+{
+    this.initialTime -= 1;
+    this.depart.setText(this.initialTime);
+    if (this.initialTime===0){
+        this.depart.setVisible(false);
+        this.CestPartieMaGueule1 = true;
+        this.CestPartieMaGueule2 = true;
+    }
+}
 
     update() {
         this.cameras.main.centerOn(this.player.player.x + 300, 480, true);
         this.cameras.main.setRoundPixels(true);
 
+    if (this.CestPartieMaGueule1) {
 
         if (!this.piment.eatPiment) {
             this.player.player.setVelocityX(500)
 
-            if(this.Gliss.glissIn){
+            if (this.Gliss.glissIn) {
 
+            } else if (this.player.player.body.onFloor() && !this.cursors.down.isDown) {
+                this.player.player.play('walk', true)
             }
-            else if (this.player.player.body.onFloor()  && !this.cursors.down.isDown) {
-                this.player.player.play('walk', true)}
         } else {
             this.player.player.setVelocityX(800)
             if (this.player.player.body.onFloor() && !this.cursors.down.isDown) {
-                this.player.player.play('run', true)}
+                this.player.player.play('run', true)
+            }
         }
-
 
 
         switch (true) {
@@ -190,37 +211,60 @@ class scene extends Phaser.Scene {
                 this.player.player.setVelocityY(800);
             }
         }
-        if (!this.cursors.down.isDown && !this.Gliss.isGliss){
-            if (this.flag){
-                this.player.player.body.setOffset(0,0);
-                this.player.player.body.setSize( this.player.player.sourceWidth,  this.player.player.sourceHeight, true);
+        if (!this.cursors.down.isDown && !this.Gliss.isGliss) {
+            if (this.flag) {
+                this.player.player.body.setOffset(0, 0);
+                this.player.player.body.setSize(this.player.player.sourceWidth, this.player.player.sourceHeight, true);
                 this.glissade.stop();
-                this.flag=false;
+                this.flag = false;
                 this.Gliss.glissIn = false;
             }
         }
 
-        if (this.Gliss.isGliss){
+        if (this.Gliss.isGliss) {
             this.Gliss.isGliss = false;
         }
 
+    }
+    if(this.CestPartieMaGueule2) {
 
         this.lapin.player.setVelocityX(600)
         if (this.lapin.player.body.onFloor()) {
-            this.lapin.player.play('lapin',true);
+            this.lapin.player.play('lapin', true);
+        } else {
+            this.lapin.player.play('jumpL', true);
         }
-        else {
-            this.lapin.player.play('jumpL',true);
+    }
+
+
+        if (this.player.player.x >= 25084) {
+            this.player.player.setVelocity(0, 0);
+            if (this.danceFlag){
+                if (this.termine){
+                    this.player.player.play('perdu');
+                } else {
+                    this.player.player.play('dance');
+                    this.termine=true;
+                }
+                this.danceFlag=false;
+                this.CestPartieMaGueule1=false;
+            }
         }
 
-
-
-
-        if (this.player.player.x >= 25084 || this.lapin.player.x >= 25084){
-            this.player.player.setVelocity(0,0);
-            this.lapin.player.setVelocity(0,0);
-            this.player.player.play('dance',true);
+        if (this.lapin.player.x >= 25084) {
+            this.lapin.player.setVelocity(0, 0);
+            if (this.danceFlag2){
+                if (this.termine){
+                    this.lapin.player.play('perdu');
+                } else {
+                    this.lapin.player.play('dance');
+                    this.termine=true;
+                }
+                this.danceFlag2=false;
+                this.CestPartieMaGueule2=false;
+            }
         }
+
 
 }
 
