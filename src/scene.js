@@ -15,7 +15,7 @@ class scene extends Phaser.Scene {
         this.load.spritesheet('gliss','assets/images/glisse.png',{frameWidth: 118, frameHeight: 121});
         this.load.spritesheet('glissP','assets/images/glisseP.png',{frameWidth: 118, frameHeight: 121});
         this.load.spritesheet('lapinT','assets/images/LapinT.png',{frameWidth: 258, frameHeight: 281});
-        this.load.spritesheet('tribunes','assets/images/tribune.png',{frameWidth: 1157, frameHeight: 736});
+        this.load.spritesheet('tribunes','assets/images/tribune.png',{frameWidth: 312, frameHeight: 195});
 
         this.load.spritesheet('piment','assets/images/piment.png',{frameWidth: 134, frameHeight: 135});
         this.load.image('tiles', 'assets/tilesets/platformPack_tilesheet.png');
@@ -53,16 +53,19 @@ class scene extends Phaser.Scene {
         this.platforms = map.createLayer('Sol', tileset);
 
 
+
         this.platforms.setCollisionByExclusion(-1, true);
         this.cursors = this.input.keyboard.createCursorKeys();
 
-
+        this.tribunes = this.add.sprite(25464, 700, 'tribunes');
+        this.tribunes.setScale(0.5);
         this.player = new Player(this)
         this.lapin = new Lapin(this)
         this.piment = new Piment(this, this.player)
         this.Gliss = new Glisse(this,this.player)
         this.lapinBox = new LapinBox(this,this.lapin)
 
+        this.first = map.createLayer('first', tileset4);
 
         this.speed = {
             speedMultiple: 1,
@@ -99,6 +102,19 @@ class scene extends Phaser.Scene {
             repeat:-1,
 
         });
+
+        this.anims.create({
+            key: 'tribunes',
+            frames: this.anims.generateFrameNames('tribunes', {
+                //prefix: 'courirT',
+                start: 0,
+                end: 2,
+                //duration:10,
+            }),
+            frameRate: 15,
+            repeat: -1,
+        });
+        this.tribunes.anims.play('tribunes')
 
         // Parallax
 
