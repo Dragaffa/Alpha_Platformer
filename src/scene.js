@@ -48,7 +48,10 @@ class scene extends Phaser.Scene {
         this.atmo = map.createLayer('atmo1', tileset2);
         this.sol = map.createLayer('Sol2', tileset2);
         this.solo = map.createLayer('Sol3', tileset2);
+
+
         this.potoFin = map.createLayer('fin', tileset4);
+
         this.arriere = map.createLayer('plat', tileset2);
         this.platforms = map.createLayer('Sol', tileset);
 
@@ -57,8 +60,8 @@ class scene extends Phaser.Scene {
         this.platforms.setCollisionByExclusion(-1, true);
         this.cursors = this.input.keyboard.createCursorKeys();
 
-        this.tribunes = this.add.sprite(25464, 700, 'tribunes');
-        this.tribunes.setScale(0.5);
+        this.tribunes = this.add.sprite(25500, 675, 'tribunes');
+        this.tribunes.setScale(1);
         this.player = new Player(this)
         this.lapin = new Lapin(this)
         this.piment = new Piment(this, this.player)
